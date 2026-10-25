@@ -41,9 +41,9 @@ To provide clear visual role awareness, the user interface dynamically adapts it
 
 ---
 
-## 🔑 Pre-Seeded Default Staff Accounts (Credentials)
+## 🔑 Demonstrative User Credentials
 
-Per project guidelines, there is **no public registration form** and passwords are stored as specified. The database is pre-seeded with the exact **8 staff accounts** covering all required university roles:
+Per project guidelines, there is **no public registration form** and passwords are stored as specified. The database is  with the exact **8 staff accounts** covering all required university roles:
 
 | Staff Member Name | Email Address | Username | Password | Role / Access Level | Theme Applied |
 | :--- | :--- | :--- | :--- | :--- | :---: |
