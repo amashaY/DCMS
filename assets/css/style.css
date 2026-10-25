@@ -1,0 +1,614 @@
+/* ============================================================================
+   Department Communication Management System
+   Department of Computing | Faculty of Applied Sciences
+   Rajarata University of Sri Lanka
+   Course: ICT 1407 - Database Systems
+   Role-Themed Clean & Simple Project Stylesheet
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   Role-Based Color Scheme Palettes
+   ---------------------------------------------------------------------------- */
+
+/* Default / HOD Theme: Administrative Royal Blue */
+:root, body, body.theme-hod {
+    --role-nav-bg: #1e3a8a;          /* Deep Royal Blue */
+    --role-nav-hover: #2563eb;       /* Vibrant Blue */
+    --role-primary: #1d4ed8;         /* Primary Action Blue */
+    --role-primary-hover: #1e40af;   /* Darker Blue */
+    --role-badge-bg: #dbeafe;        /* Soft Blue Tag */
+    --role-badge-text: #1e40af;      /* Dark Blue Text */
+    --role-light-bg: #eff6ff;
+    --role-border-accent: #3b82f6;
+}
+
+/* Management Assistant Theme: Executive Administrative Teal */
+body.theme-management-assistant {
+    --role-nav-bg: #115e59;          /* Deep Teal */
+    --role-nav-hover: #0d9488;       /* Teal Accent */
+    --role-primary: #0f766e;         /* Primary Action Teal */
+    --role-primary-hover: #134e4a;   /* Dark Teal */
+    --role-badge-bg: #ccfbf1;
+    --role-badge-text: #115e59;
+    --role-light-bg: #f0fdfa;
+    --role-border-accent: #14b8a6;
+}
+
+/* Lecturer Theme: Academic Indigo */
+body.theme-lecturer {
+    --role-nav-bg: #312e81;          /* Deep Academic Indigo */
+    --role-nav-hover: #4f46e5;       /* Indigo Accent */
+    --role-primary: #4338ca;         /* Primary Action Indigo */
+    --role-primary-hover: #3730a3;   /* Dark Indigo */
+    --role-badge-bg: #e0e7ff;
+    --role-badge-text: #3730a3;
+    --role-light-bg: #eef2ff;
+    --role-border-accent: #6366f1;
+}
+
+/* Senior Lecturer Theme: Deep Violet */
+body.theme-senior-lecturer {
+    --role-nav-bg: #4c1d95;          /* Deep Violet */
+    --role-nav-hover: #7c3aed;       /* Violet Accent */
+    --role-primary: #6d28d9;         /* Primary Action Violet */
+    --role-primary-hover: #5b21b6;   /* Dark Violet */
+    --role-badge-bg: #ede9fe;
+    --role-badge-text: #5b21b6;
+    --role-light-bg: #f5f3ff;
+    --role-border-accent: #8b5cf6;
+}
+
+/* Demonstrator Theme: Steel Blue / Slate */
+body.theme-demonstrator {
+    --role-nav-bg: #1e293b;          /* Dark Slate */
+    --role-nav-hover: #0284c7;       /* Steel Cyan */
+    --role-primary: #0369a1;         /* Primary Action Steel */
+    --role-primary-hover: #075985;
+    --role-badge-bg: #e0f2fe;
+    --role-badge-text: #0369a1;
+    --role-light-bg: #f0f9ff;
+    --role-border-accent: #38bdf8;
+}
+
+/* Technical Staff Theme: Charcoal / Warm Amber Accent */
+body.theme-technical-staff {
+    --role-nav-bg: #1c1917;          /* Deep Charcoal */
+    --role-nav-hover: #d97706;       /* Warm Amber Accent */
+    --role-primary: #b45309;         /* Primary Action Amber */
+    --role-primary-hover: #92400e;
+    --role-badge-bg: #fef3c7;
+    --role-badge-text: #92400e;
+    --role-light-bg: #fffbeb;
+    --role-border-accent: #f59e0b;
+}
+
+/* Student Coordinator Theme: Forest Emerald Green */
+body.theme-student-coordinator {
+    --role-nav-bg: #14532d;          /* Deep Forest Green */
+    --role-nav-hover: #16a34a;       /* Fresh Green Accent */
+    --role-primary: #15803d;         /* Primary Action Green */
+    --role-primary-hover: #166534;
+    --role-badge-bg: #dcfce7;
+    --role-badge-text: #166534;
+    --role-light-bg: #f0fdf4;
+    --role-border-accent: #22c55e;
+}
+
+/* ----------------------------------------------------------------------------
+   Base Elements
+   ---------------------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #212529;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* ----------------------------------------------------------------------------
+   Top Navigation Bar (Styled by Role)
+   ---------------------------------------------------------------------------- */
+.navbar {
+    background-color: var(--role-nav-bg);
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+    transition: background-color 0.2s ease;
+}
+
+.nav-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.nav-brand img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: #e2e8f0;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 13px;
+    transition: background 0.15s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu .active a {
+    background-color: var(--role-nav-hover);
+    color: #ffffff;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-badge {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.role-pill {
+    background-color: var(--role-badge-bg);
+    color: var(--role-badge-text);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 4px;
+}
+
+.btn-logout {
+    background-color: #dc2626;
+    color: #ffffff !important;
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btn-logout:hover {
+    background-color: #b91c1c;
+}
+
+/* ----------------------------------------------------------------------------
+   Page Layout & Container
+   ---------------------------------------------------------------------------- */
+.container {
+    max-width: 1140px;
+    margin: 20px auto 40px auto;
+    padding: 0 15px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cbd5e0;
+}
+
+.page-title h1 {
+    font-size: 22px;
+    color: var(--role-nav-bg);
+    margin-bottom: 4px;
+}
+
+.page-title p {
+    color: #4a5568;
+    font-size: 13px;
+}
+
+/* ----------------------------------------------------------------------------
+   Card Component
+   ---------------------------------------------------------------------------- */
+.card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background: #f7fafc;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.card-header h2, .card-header h3 {
+    font-size: 15px;
+    color: #2d3748;
+    margin: 0;
+}
+
+.card-body {
+    padding: 18px;
+}
+
+/* ----------------------------------------------------------------------------
+   Dashboard Stat Cards Grid
+   ---------------------------------------------------------------------------- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid var(--role-primary);
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stat-box.green { border-left-color: #16a34a; }
+.stat-box.amber { border-left-color: #d97706; }
+.stat-box.purple { border-left-color: #7c3aed; }
+.stat-box.red { border-left-color: #dc2626; }
+
+.stat-icon {
+    font-size: 28px;
+}
+
+.stat-content h3 {
+    font-size: 22px;
+    color: #1a202c;
+    margin: 0;
+}
+
+.stat-content p {
+    font-size: 12px;
+    color: #718096;
+    margin: 0;
+}
+
+/* ----------------------------------------------------------------------------
+   Tables
+   ---------------------------------------------------------------------------- */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0;
+    background: #ffffff;
+}
+
+.table th, .table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #f7fafc;
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table tr:hover {
+    background-color: #f8fafc;
+}
+
+/* ----------------------------------------------------------------------------
+   Buttons (Themed with Role Primary)
+   ---------------------------------------------------------------------------- */
+.btn {
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 7px 14px;
+    font-size: 13px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.btn-primary {
+    background-color: var(--role-primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--role-primary-hover);
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background-color: #edf2f7;
+    color: #4a5568;
+    border-color: #cbd5e0;
+}
+
+.btn-secondary:hover {
+    background-color: #e2e8f0;
+    color: #2d3748;
+}
+
+.btn-success {
+    background-color: #16a34a;
+    color: #ffffff;
+}
+
+.btn-success:hover {
+    background-color: #15803d;
+}
+
+.btn-danger {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #b91c1c;
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+/* ----------------------------------------------------------------------------
+   Forms & Inputs
+   ---------------------------------------------------------------------------- */
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #2d3748;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #2d3748;
+    background-color: #ffffff;
+}
+
+.form-control:focus {
+    border-color: var(--role-border-accent);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* ----------------------------------------------------------------------------
+   Badges & Tags
+   ---------------------------------------------------------------------------- */
+.badge {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+.badge-scheduled { background: #ebf8ff; color: #1d4ed8; }
+.badge-completed { background: #f0fff4; color: #15803d; }
+.badge-cancelled { background: #fff5f5; color: #b91c1c; }
+.badge-rescheduled { background: #fffaf0; color: #b45309; }
+
+.badge-present { background: #f0fff4; color: #15803d; }
+.badge-absent { background: #fff5f5; color: #b91c1c; }
+.badge-excused { background: #fffaf0; color: #b45309; }
+
+/* ----------------------------------------------------------------------------
+   Alerts
+   ---------------------------------------------------------------------------- */
+.alert {
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.alert-success {
+    background-color: #def7ec;
+    border: 1px solid #84e1bc;
+    color: #03543f;
+}
+
+.alert-danger {
+    background-color: #fde8e8;
+    border: 1px solid #f8b4b4;
+    color: #9b1c1c;
+}
+
+/* ----------------------------------------------------------------------------
+   Calendar Table
+   ---------------------------------------------------------------------------- */
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.calendar-table th {
+    background: var(--role-primary);
+    color: #ffffff;
+    text-align: center;
+    padding: 8px;
+    font-size: 13px;
+}
+
+.calendar-table td {
+    height: 85px;
+    vertical-align: top;
+    padding: 6px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+}
+
+.calendar-table td.empty-day {
+    background: #f7fafc;
+}
+
+.calendar-table td.today {
+    background: var(--role-light-bg);
+    font-weight: bold;
+}
+
+.day-number {
+    font-size: 12px;
+    color: #4a5568;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.cal-meeting-pill {
+    display: block;
+    background: var(--role-primary);
+    color: #ffffff;
+    font-size: 11px;
+    padding: 3px 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    margin-bottom: 3px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cal-meeting-pill:hover {
+    background: var(--role-primary-hover);
+}
+
+/* ----------------------------------------------------------------------------
+   Login Page
+   ---------------------------------------------------------------------------- */
+.login-body {
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 440px;
+    padding: 32px;
+    border-top: 5px solid #1e3a8a;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.login-header h1 {
+    font-size: 20px;
+    color: #1e3a8a;
+    margin-top: 12px;
+    font-weight: 700;
+}
+
+.login-header p {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+/* ----------------------------------------------------------------------------
+   Footer
+   ---------------------------------------------------------------------------- */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #718096;
+    font-size: 12px;
+    border-top: 1px solid #e2e8f0;
+    background: #ffffff;
+    margin-top: 40px;
+}
+
+@media print {
+    .no-print, .navbar, .footer {
+        display: none !important;
+    }
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}
